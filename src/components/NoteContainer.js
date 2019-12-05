@@ -16,7 +16,8 @@ class NoteContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/notes')
+    // fetch('http://localhost:3000/api/v1/notes')
+    fetch("https://everyone-note-api.herokuapp.com/api/v1/notes")
       .then(res => res.json())
       .then(fetchedNoteList => this.setState({
         noteArray: fetchedNoteList,
@@ -34,21 +35,22 @@ class NoteContainer extends Component {
 
   handleAddNote = () => {
 
-    fetch(`http://localhost:3000/api/v1/notes`, {
+    // fetch(`http://localhost:3000/api/v1/notes`, {
+    fetch(`https://everyone-note-api.herokuapp.com/api/v1/notes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        "title": "Click To Edit Note",
+        "title": "Click To Edit New Note",
         "body": ""
       })
     })
       .then(response => response.json())
       .then(newNote => {
 
-        if (this.state.noteArray.slice(0, 1)[0].title === "Click To Edit Note") {
+        if (this.state.noteArray.slice(0, 1)[0].title === "Click To Edit New Note") {
           console.log('Adding note disabled. Edit Existing New Note')
           this.setState({ addDisabled: true })
           return
@@ -75,7 +77,8 @@ class NoteContainer extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`http://localhost:3000/api/v1/notes/${this.state.clickedNote.id}`, {
+    // fetch(`http://localhost:3000/api/v1/notes/${this.state.clickedNote.id}`, {
+    fetch(`https://everyone-note-api.herokuapp.com/api/v1/notes/${this.state.clickedNote.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
