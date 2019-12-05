@@ -10,7 +10,7 @@ Everyone Note is a web app that lets everyone take notes. No barriers, just a li
 
 RoR (React as the front and Rails on the back).
 
-Implements props drilling and lifting state gymnastics. Uses stateful components higher up the component heirarchy where needed and functional components down where props are recieved and rendered All custom CSS.
+Implements props drilling and lifting state gymnastics. Uses stateful components higher up the component hierarchy where needed and functional components down where props are received and rendered All custom CSS.
 
 The CRUD app integrates with a backend RESTful API built with Rails. Repo can be found here: [EveryoneNote_API](https://github.com/Abdul-Sayed/EveryoneNote_API)
 
